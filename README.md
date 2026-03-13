@@ -87,4 +87,6 @@ Quick sort is another divide-and-conquer algorithm, but unlike merge sort, it di
 
 In that balanced case, quick sort has about `log n` recursive levels and performs `O(n)` partition work at each level, which gives an average runtime of `O(n log n)`. If the pivot choices are consistently poor and the partitions become heavily unbalanced, the recursion can stretch out and the runtime can degrade to `O(n^2)`.
 
+In this JavaScript version, values are placed into the `left`, `middle`, and `right` arrays with `push()`, and the final answer is rebuilt with the spread operator in `[...sortedLeft, ...middle, ...sortedRight]`. The demo also uses `Math.floor()` and `Math.random()` to choose pivots for recursive calls on the smaller subarrays, which keeps the quick sort implementation close to the way the algorithm is explained on the page.
+
 This implementation uses a three-way partition with `left`, `middle`, and `right` arrays, which handles duplicate values cleanly. Because it builds new arrays during each partitioning step instead of sorting fully in place, its extra space is `O(n)` on balanced recursion paths, but it can grow to `O(n^2)` in the worst case if the partitions stay heavily unbalanced. The complexity box reflects that worst-case bound for this specific implementation.
